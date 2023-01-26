@@ -4,39 +4,39 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        // {
-        //     "name": "prototype_3_uthm_hrapp",
-        //     "cwd": "prototype_3_uthm_hrapp",
-        //     "request": "launch",
-        //     "type": "dart"
-        // },
-        // {
-        //     "name": "prototype_3_uthm_hrapp (profile mode)",
-        //     "cwd": "prototype_3_uthm_hrapp",
-        //     "request": "launch",
-        //     "type": "dart",
-        //     "flutterMode": "profile"
-        // },
-        // {
-        //     "name": "prototype_3_uthm_hrapp (release mode)",
-        //     "cwd": "prototype_3_uthm_hrapp",
-        //     "request": "launch",
-        //     "type": "dart",
-        //     "flutterMode": "release"
-        // },
+        {
+            "name": "prototype_3_uthm_hrapp",
+            "cwd": "prototype_3_uthm_hrapp",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "prototype_3_uthm_hrapp (profile mode)",
+            "cwd": "prototype_3_uthm_hrapp",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "prototype_3_uthm_hrapp (release mode)",
+            "cwd": "prototype_3_uthm_hrapp",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
         {
             "name": "Android",
             "request": "launch",
             "type": "dart",
             "deviceId": "emulator-5554",
-            "program": "prototype_3_uthm_hrapp/lib/main.dart"
+            // "program": "prototype_3_uthm_hrapp/lib/main.dart"
         },
         {
             "name": "Web-Chrome",
             "request": "launch",
             "type": "dart",
             "deviceId": "chrome",
-            "program": "prototype_3_uthm_hrapp/lib/main.dart"
+            // "program": "prototype_3_uthm_hrapp/lib/main.dart"
         }
     ],
     "compounds": [
