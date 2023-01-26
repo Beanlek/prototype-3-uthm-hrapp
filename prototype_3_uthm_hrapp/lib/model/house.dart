@@ -14,7 +14,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 Widget buildHouseStudent(House house) => ListTile(
   leading: SizedBox(
     width: 100,
-    child: Image.network(house.imageUrl, fit: BoxFit.cover,)
+    child: Image.network(house.imageUrl, fit: BoxFit.fitWidth,)
   ),
   title: Text(house.houseName),
   subtitle: Column(
@@ -24,7 +24,7 @@ Widget buildHouseStudent(House house) => ListTile(
       Row(
         children: [
           SizedBox(
-            width: 200,
+            width: 150,
             child: AutoSizeText(house.houseAddress,
               maxLines: 2,
             ),
@@ -38,8 +38,8 @@ Widget buildHouseStudent(House house) => ListTile(
                 String landlord = snapshot.data;//.data();
         
                 return SizedBox(
-                  width: 100,
-                  child: AutoSizeText(landlord, maxLines: 2,)
+                  width: 80,
+                  child: AutoSizeText(landlord, maxLines: 2, textAlign: TextAlign.right,)
                 );
               }else {
                 return Center(child: CircularProgressIndicator(),);

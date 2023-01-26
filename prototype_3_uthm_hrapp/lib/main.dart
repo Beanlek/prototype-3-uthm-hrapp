@@ -9,6 +9,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:provider/provider.dart';
 
 import 'package:flutter/material.dart';
+import 'theme/style.dart';
 // import 'dart:io';
 
 import 'services/auth.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'prototype_3_uthm_hrapp',
-          theme: ThemeData(primarySwatch: Colors.blue),
+          theme: mainTheme,//ThemeData(primarySwatch: Colors.blue),
           home: AuthWrapper(),
         );
       }
