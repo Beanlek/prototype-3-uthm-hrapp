@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'dart:io';
 
 import 'main.dart';
+import 'model/house.dart';
 import 'services/auth.dart';
 import 'model/app_user.dart';
 import 'create_landlord.dart';
@@ -77,7 +78,29 @@ class _HPageAdminState extends State<HPageAdmin>{
                   );
                 },
                 child: Text('ADD LANDLORD AND HOUSE')
-              )
+              ),
+
+              SizedBox(height: 50,),
+
+              SizedBox(
+                height: 500,
+                child: StreamBuilder<List<House>>(
+                  stream: readAllHouse(),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasError) {
+                      return Text('Something went wrong! ${snapshot.error}');
+                    }else if (snapshot.hasData) {
+                      final houses = snapshot.data!;
+                    
+                      return ListView(
+                        children: houses.map(buildHouseStudentDelete).toList(),
+                      );
+                    }else {
+                      return Center(child: CircularProgressIndicator(),);
+                    }
+                  }
+                ),
+              ),
             ],
           ),
         ),

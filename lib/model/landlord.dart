@@ -41,7 +41,7 @@ Stream readLordName(String uid) => FirebaseFirestore.instance
   .map((snapshot) => 
     snapshot.data().toString().contains("lordName") ? snapshot.get("lordName") : 'nothing',
   );
-
+  
 class Landlord {
   String lordId;
   String lordName;

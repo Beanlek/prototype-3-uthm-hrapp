@@ -29,6 +29,7 @@ class _LogInPageState extends State<LogInPage>{
   @override 
   Widget build(BuildContext contxt) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text('Log In Page')
       ),

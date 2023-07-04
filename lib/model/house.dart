@@ -7,6 +7,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 // import 'package:file_picker/file_picker.dart';
 
 import 'package:flutter/material.dart';
+import 'package:prototype_3_uthm_hrapp/theme/style.dart';
 import 'landlord.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 // import 'dart:io';
@@ -48,6 +49,61 @@ Widget buildHouseStudent(House house) => ListTile(
           ),
         ],
       ),
+    ],
+  ),
+);
+
+// String readHouseId(String uid) => FirebaseFirestore.instance
+//   .collection('House')
+//   .doc(uid)
+//   .toString();//"6QOnUo8PQhdqtKQtzKXhSOOC4K43")
+
+Widget buildHouseStudentDelete(House house) => ListTile(
+  leading: SizedBox(
+    width: 100,
+    child: Image.network(house.imageUrl, fit: BoxFit.fitWidth,)
+  ),
+  title: Text(house.houseName, style: TextStyle(color: Colors.white),),
+  subtitle: Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text('RM ${house.rentPrice.toString()}', textAlign: TextAlign.start, style: TextStyle(color: Colors.white)),
+      Row(
+        children: [
+          SizedBox(
+            width: 150,
+            child: AutoSizeText(house.houseAddress,
+              maxLines: 2,
+              style: TextStyle(color: Colors.white)
+            ),
+          ),
+          StreamBuilder(
+            stream: readLordName(house.lordId),
+            builder: (context, snapshot) {
+              if (snapshot.hasError) {
+                return Text('Something went wrong! ${snapshot.error}');
+              }else if (snapshot.hasData) {
+                String landlord = snapshot.data;//.data();
+        
+                return SizedBox(
+                  width: 80,
+                  child: AutoSizeText(landlord, maxLines: 2, textAlign: TextAlign.right, style: TextStyle(color: Colors.white))
+                );
+              }else {
+                return Center(child: CircularProgressIndicator(),);
+              }
+            }
+          ),
+        ],
+      ),
+
+      TextButton(onPressed: (){
+        final deleteUser = FirebaseFirestore.instance
+          .collection('House')
+          .doc(house.houseId);
+
+        deleteUser.delete();
+      }, child: Text('Delete'))
     ],
   ),
 );
